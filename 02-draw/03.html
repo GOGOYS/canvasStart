@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      function 라디안(각도) {
+        return 각도 * Math.PI / 180;
+      }
+      // beginPath
+      // arc
+      // closePath
+      //패스는 시작과 끝을 지정해줘야함, 어도비의 path를 생각하면 편리
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      context.beginPath();
+      //원 만들기
+      context.arc(300, 200, 50, 0, 라디안(360), false);
+      //(중심의 x, 중심의y, 반지름크기, 시작각도, 끝각도, 불린값)
+      //라디안(360) 파이값으로 구해야한당.
+      // 360도는 = 2파이
+      //불린값은 호의 방향,  true 반시계, false 시계방향 지정
+      context.stroke();
+      context.closePath();
+      context.beginPath();
+      context.arc(500, 100, 20, 0, 라디안(120), true);
+      context.fill();
+      context.closePath();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas class="canvas" width="600" height="400">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+      // fillRect : 칠하는 개념
+      // 검은색이 default값이다 
+      // fillRect(x좌표,y좌표, 넓이, 높이);
+      // fillStyle = 'red' 직접 색상 지정가능하나,
+      // 모든 fillRect의 색상이 바뀌는 것이 아닌 이후의 색상만 바뀜
+      // 모든 것은 도화지에 그리는것 처럼 순서대로
+      // clearRect : 지우개
+      // strokeRect : 선 그리기(사각형)
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      // getContext를 사용해서 그린다.
+      console.log(context);
+
+      context.fillRect(50,50,100,100)
+      context.fillStyle = 'red'
+      context.fillRect(0,0, 100, 100);
+      context.fillRect(100,100, 100, 100);
+      context.clearRect(50,50,50,50)
+      context.strokeRect(200,200, 100, 100);
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

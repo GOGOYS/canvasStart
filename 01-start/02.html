@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+      }
+      .canvas {
+        width: 500px;
+        height: 300px;
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>캔버스 사이즈 설정</h1>
+    <canvas class="canvas" width="500" height="300"></canvas>
+    <canvas class="canvas canvas2" width="1000" height="600"></canvas>
+    <!-- 캔버스는 태그에서 지정하는 width, height랑 css의 width, height는 다르다
+    css에서의 width, height는 사용자에게 보여주는 크기이고, canvas tag에서의 크기 지정은
+    실제의 캔버스 크기이다. 두개의 개념 혼동주의!!
+    실제로 보여줄려고 하는 크기의 두배정도를 canvas 태그의 크기로 지정하고
+    css에서 실제크기를 지정한다. why?
+    왜냐하면 canvas는 픽셀 방식이기때문에 사용자에게 고화질로 보여주기 위해서는
+    크기그리고 압축해서 보여주는게 픽셀이 안보이고 고화질이 가능하기때문
+    대신 성능 이슈와 계산할 픽셀의 값이 많이지는 단점이 있음.-->
+
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const canvas2 = document.querySelector('.canvas2');
+      const context = canvas.getContext('2d');
+      const context2 = canvas2.getContext('2d');
+
+      context.arc(100, 100, 50, 0, Math.PI*2, false);
+      context2.arc(100, 100, 50, 0, Math.PI*2, false);
+      context.fill();
+      context2.fill();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

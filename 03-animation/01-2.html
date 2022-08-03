@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .canvas {
+        background: #eee;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>requestAnimationFrame</h1>
+    <canvas class="canvas" width="500" height="300"></canvas>
+
+    <script>
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      let xPos = 10;
+      let count = 0;
+
+      const draw = ()=>{
+        if(count % 30 ===0){
+
+        
+        //전에 그렸던거 지우기
+        context.clearRect(0,0,canvas.width, canvas.height);
+        //그리기 시작
+        context.beginPath();
+        //원 생성
+        context.arc(xPos, 150, 5, 0, Math.PI*2, false);
+        //원 칠하기
+        context.fill();
+        //좌표값 늘리기
+        xPos += 3;
+        }
+        count ++;
+        
+        requestAnimationFrame(draw);
+        //requestAnimationFrame();은 반복을 시켜주는데
+        //그릴 준비가 다 되었을때까지 기다렸다가 반복을 시켜줌
+      };
+      draw();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
